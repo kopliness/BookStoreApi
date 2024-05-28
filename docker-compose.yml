@@ -1,9 +1,13 @@
 ﻿services:
-  bookstoreapi:
-    image: bookstoreapi
+  bookstore:
+    image: bookstore
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - mongodb
+    ports:
+      - "5207:8080"
   mongodb:
     image: mongo:latest
     volumes:
