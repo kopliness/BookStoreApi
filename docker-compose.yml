@@ -1,0 +1,15 @@
+﻿services:
+  bookstoreapi:
+    image: bookstoreapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+  mongodb_data:
